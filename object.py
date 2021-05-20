@@ -43,7 +43,7 @@ def GetCubeColor(frame,debug = False):
     #arranged = sorted(colors, key=lambda x : x[1], reverse = True)
     return arranged
 
-def getColorMaskArea(org,img,low1,up1,low2 = None,up2 = None,debug = True):
+def getColorMaskArea(org,img,low1,up1,low2 = None,up2 = None,debug = False):
     if low2 is None:
         low2 = low1
     if up2 is None:
@@ -159,5 +159,19 @@ def test():
 #testGreen()
 #frame = cv2.imread('./blue.jpg')
 #print(GetCubeColor(frame)[0])
+vid = cv2.VideoCapture(0)
+while True:
+    ret, frame = vid.read()
+    cv2.imshow('output',frame)
+    values = GetCubeColor(frame)
+    if len(values) == 0 :
+        print('no color found')
+    else:
+        print(values[0][0])
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
 
 
+vid.release()
+cv2.destroyAllWindows()
