@@ -70,11 +70,11 @@ def getColorMaskArea(org,img,low1,up1,low2 = None,up2 = None,debug = True):
     #boudningWH = map(lambda x : cv2.boundingRect(x),contours)
     def IsAcceptableRectangle(rect):
         w,h = GetBoxWH(rect)
-        if w > 560 and w < 620 and h > 270 and h < 320:
+        if w > 400 and w < 620 and h > 200 and h < 320:
             return True
         else:
             w,h = h,w
-            return w > 560 and w < 620 and h > 270 and h < 320
+            return w > 400 and w < 620 and h > 200 and h < 320
 
     def GetBoxWH(box):
         x1,y1=(box[0][0],box[0][1])
@@ -128,9 +128,12 @@ def testGreen():
     'green_redish.jpg',
     'green_saturated.jpg',
     'green_verydark.jpg',
+    './green_trim.jpg',
+    './green_trimup.jpg',
+    './green_trimup_rotate.jpg',
     'green_bluish.jpg',
     'green_bluish1.jpg',
-    'green_greenish.jpg'
+    'green_greenish.jpg',
     ]
 
     for fileName in filenames:
@@ -154,7 +157,7 @@ def test():
 #test()
 #testRed()
 #testGreen()
-frame = cv2.imread('./green_trim.jpg')
-print(GetCubeColor(frame)[0])
+#frame = cv2.imread('./green_trimup_rotate.jpg')
+#print(GetCubeColor(frame)[0])
 
 
