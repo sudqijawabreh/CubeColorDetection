@@ -110,7 +110,7 @@ def getColorMaskArea(org,img,low1,up1,low2 = None,up2 = None,debug = True):
 
 
 def testRed():
-    filenames = [ 'red.jpg', 'red_bright.jpg', 'red_bright1.jpg', 'red_dark.jpg', 'red_dark1.jpg' ,'red_rotate1',  'red_rotate2']
+    filenames = [ 'red.jpg', 'red_bright.jpg', 'red_bright1.jpg', 'red_dark.jpg', 'red_dark1.jpg' ,'red_rotate1.jpg',  'red_rotate2.jpg']
     for fileName in filenames:
         frame = cv2.imread(fileName)
         values = GetCubeColor(frame)
@@ -157,7 +157,7 @@ def test():
 #test()
 #testRed()
 #testGreen()
-#frame = cv2.imread('./green_trimup_rotate.jpg')
+#frame = cv2.imread('./blue.jpg')
 #print(GetCubeColor(frame)[0])
 
 
